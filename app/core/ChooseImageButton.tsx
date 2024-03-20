@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 export interface ImageDetails {
   path: string;
@@ -14,8 +14,11 @@ interface ChooseImageButtonProps {
 
 const ChooseImageButton = ({onChoose}: ChooseImageButtonProps) => {
   const handlePress = async () => {
-    const imageResult = await ImagePicker.launchImageLibraryAsync();
-    if (imageResult.canceled) {
+    const imageResult = await launchImageLibrary({
+      mediaType: 'photo',
+      quality: 1,
+    });
+    if (imageResult.didCancel) {
       return;
     }
 

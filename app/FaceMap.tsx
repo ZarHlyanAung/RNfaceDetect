@@ -2,7 +2,7 @@ import {Face, Point} from '@react-native-ml-kit/face-detection';
 import React from 'react';
 import {StyleSheet, useWindowDimensions} from 'react-native';
 import Svg, {Circle, Path, Rect} from 'react-native-svg';
-import {scaleFrame, scalePoint} from '../core/scaling';
+import {scaleFrame, scalePoint} from './core/scaling';
 
 interface FaceMapProps {
   face: Face;
